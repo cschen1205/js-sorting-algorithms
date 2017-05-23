@@ -36,7 +36,23 @@ var jssort = jssort || {};
     };
     
     jss.insertionSort = function(a, lo, hi, compare){
+        if(!lo) lo = 0;
+        if(!hi) hi = a.length-1;
+        if(!compare) {
+            compare = function(a1, a2){
+                return a1 - a2;
+            };
+        }
         
+        for(var i = lo+1; i <= hi; ++i){
+            for(var j = i; j > lo; --j){
+                if(jss.less(a[j-1], a[j], compare)){
+                    jss.exchange(a, j-1, j);
+                } else {
+                    break;
+                }
+            }
+        }
     };
 
 })(jssort);
