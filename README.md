@@ -5,82 +5,56 @@ Package provides the implementation of various statistics distribution such as n
 
 # Features
 
-* Normal Distribution
-  
-  - cumulativeProbability(Z)
-  - invCumulativeProbability(p)
+In terms of usage, the user has the following benefit of using the sorting algorithms:
 
-* Student's T Distribution
+* Customizable comparer function for the sorting function
+* Allow user to sort a sublist of an array starting and ending at the user-defined indices
 
-  - cumulativeProbability(t_df)
-  - invCumulativeProbability(p)
+In terms of supported algorithms for sorting:
 
-* Fisher–Snedecor Distribution
-
-  - cumulativeProbabiliyt(F)
-
-* Chi-Square Distribution
-
-  - cumulativeProbabiliy(ChiSquare)
+* Selection Sort
+* Insertion Sort
+* Merge Sort
+* Quick Sort
+* 3-Ways Quick Sort
+* Heap Sort
+* Shell Sort
 
 # Install
 
 Run the following npm command to install
 
 ```bash
-npm install js-sort
+npm install js-sorting-algorithms
 ```
 
 # Usage
 
-Sample code is available at [playground](https://runkit.com/cschen1205/js-sort-playground)
+Sample code is available at [playground](https://runkit.com/cschen1205/js-sorting-algorithms-playground)
 
 ### Using with nodejs
 
 ```javascript
 jssort = require('js-sort');
 
-//====================NORMAL DISTRIBUTION====================//
+//====================Simple====================//
 
-var mu = 0.0; // mean
-var sd = 1.0; // standard deviation
-var normal_distribution = new jssort.NormalDistribution(mu, sd);
+var a = [3, 4, 5, 1, 2, 4, 6, 8, 9, 3, 4, 67, 34, 53, 44, 2];
+jssort.insertionSort(a);
+console.log(a);
 
-var X = 10.0; // point estimate value 
-var p = normal_distribution.cumulativeProbability(X); // cumulative probability
-
-var p = 0.7; // cumulative probability
-var X = normal_distribution.invCumulativeProbability(p); // point estimate value
-
-//====================T DISTRIBUTION====================//
-
-var df = 10; // degrees of freedom for t-distribution
-var t_distribution = new jssort.TDistribution(df);
-
-var t_df = 10.0; // point estimate or test statistic
-var p = t_distribution.cumulativeProbability(t_df); // cumulative probability
-
-var p = 0.7;
-var t_df = t_distribution.invCumulativeProbability(p); // point estimate or test statistic
+//====================Sort with custom comparer function====================//
+var a = [[3, 2.3], [4, 3.1], [5, 1.1], [1, 4.2], [2, 4.2], [4, 5.3], [6, 7.4], [8, 5.1], [9, 1.9], [3, 1.2], [4, 3.4], [67, 6.7], [34, 3], [53, 5], [44, 4.2], [2, 0]];
+jssort.insertionSort(a, undefined, undefined, function(a1, a2){
+         return a1[1] - a2[1];
+});
+console.log(a);
 
 
-//====================F DISTRIBUTION====================//
-
-var df1 = 10; // degrees of freedom for f-distribution
-var df2 = 20; // degrees of freedom for f-distribution
-var f_distribution = new jssort.FDistribution(df1, df2);
-
-var F = 10.0; // point estimate or test statistic
-var p = f_distribution.cumulativeProbability(F); // cumulative probability
-
-
-//====================Chi Square DISTRIBUTION====================//
-
-var df = 10; // degrees of freedom for cs-distribution
-var cs_distribution = new jssort.ChiSquareDistribution(df);
-
-var X = 10.0; // point estimate or test statistic
-var p = cs_distribution.cumulativeProbability(X); // cumulative probability
+//====================Sort sub-arrray a[3:10] ====================//
+var a = [3, 4, 5, 1, 2, 4, 6, 8, 9, 3, 4, 67, 34, 53, 44, 2];
+jssort.insertionSort(a, 3, 10);
+console.log(a);
 
 
 
