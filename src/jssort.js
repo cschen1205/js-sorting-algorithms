@@ -46,7 +46,7 @@ var jssort = jssort || {};
         
         for(var i = lo+1; i <= hi; ++i){
             for(var j = i; j > lo; --j){
-                if(jss.less(a[j-1], a[j], compare)){
+                if(jss.less(a[j], a[j-1], compare)){
                     jss.exchange(a, j-1, j);
                 } else {
                     break;
