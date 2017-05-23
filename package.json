@@ -1,0 +1,54 @@
+{
+  "name": "js-sorting-algorithms",
+  "version": "1.0.0",
+  "description": "Package implements various array sorting algorithms",
+  "author": "Caishun Chen",
+  "contributors": [
+    "Caishun Chen <cschen1205@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test",
+    "cover": "istanbul cover _mocha",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+  },
+  "bin": {
+    "js-sort": "./src/jssort.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cschen1205/js-sorting-algorithms.git"
+  },
+  "keywords": [
+    "merge sort", 
+    "quick sort", 
+    "3 ways quick sort", 
+    "insertion sort", 
+    "selection sort", 
+    "shell sort", 
+    "heap sort", 
+    "array sorting",
+    "sorting algorthms"
+  ],
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.13.1",
+    "grunt": "^1.0.1",
+    "grunt-contrib-uglify": "^3.0.0",
+    "grunt-eslint": "^19.0.0",
+    "grunt-mocha-test": "^0.13.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/cschen1205/js-sorting-algorithms/issues"
+  },
+  "homepage": "https://github.com/cschen1205/js-sorting-algorithms#readme"
+}
