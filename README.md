@@ -1,7 +1,7 @@
 # js-sort
 Package provides the implementation of various statistics distribution such as normal distribution, fisher, student-t, and so on
 
-[![Build Status](https://travis-ci.org/cschen1205/js-sort.svg?branch=master)](https://travis-ci.org/cschen1205/js-sort) [![Coverage Status](https://coveralls.io/repos/github/cschen1205/js-sort/badge.svg?branch=master)](https://coveralls.io/github/cschen1205/js-sort?branch=master) 
+[![Build Status](https://travis-ci.org/cschen1205/js-sorting-algorithms.svg?branch=master)](https://travis-ci.org/cschen1205/js-sorting-algorithms) [![Coverage Status](https://coveralls.io/repos/github/cschen1205/js-sorting-algorithms/badge.svg?branch=master)](https://coveralls.io/github/cschen1205/js-sorting-algorithms?branch=master) 
 
 # Features
 
