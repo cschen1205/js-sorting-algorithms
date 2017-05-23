@@ -34,6 +34,10 @@ var jssort = jssort || {};
             }
         }
     };
+    
+    jss.insertionSort = function(a, lo, hi, compare){
+        
+    };
 
 })(jssort);
 
