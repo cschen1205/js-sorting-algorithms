@@ -102,7 +102,7 @@ var jssort = jssort || {};
         
         if(lo >= hi) return;
         
-        if(hi - lo >= 7) {
+        if(hi - lo <= 7) {
             jss.insertionSort(a, lo, hi, compare);
             return;
         }
@@ -133,6 +133,55 @@ var jssort = jssort || {};
                 a[k] = a[j++];
             }
         }
+    };
+    
+    jss.quickSort = function (a, lo, hi, compare) {
+        if (!lo) lo = 0;
+        if (!hi) hi = a.length-1;
+        if (!compare) {
+            compare = function (a1, a2){
+                return a1 - a2;
+            };
+        }
+        
+        if (lo >= hi) {
+            return;
+        }
+        
+        if (hi - lo <= 7) {
+            jss.insertionSort(a, lo, hi, compare);
+            return;
+        }
+        
+        var j = jss.partition(a, lo, hi, compare);
+        jss.quickSort(a, lo, j-1, compare);
+        jss.quickSort(a, j+1, hi, compare);
+    };
+    
+    jss.partition = function (a, lo, hi, compare) {
+        var v = a[lo];
+        var i = lo, j = hi+1;
+        while (true) {
+            while (jss.less(a[++i], v, compare)) {
+                if (i >= hi) {
+                    break;
+                }
+            }
+            while (jss.less(v, a[--j], compare)) {
+                if (j <= lo) {
+                    break;
+                }
+            }
+            
+            if(i >= j) {
+                break;
+            }
+            
+            jss.exchange(a, i, j);
+        }
+        
+        jss.exchange(a, lo, j);
+        return j;
     };
 
 })(jssort);
