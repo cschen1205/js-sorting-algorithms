@@ -107,9 +107,9 @@ var jssort = jssort || {};
             return;
         }
         
-        var mid = lo + (hi - lo) / 2;
-        jss.mergeSort(a, aux, lo, mid, compare);
-        jss.mergeSort(a, aux, mid+1, hi, compare);
+        var mid = Math.floor(lo + (hi - lo) / 2);
+        jss.mergeSort(a, lo, mid, compare, aux);
+        jss.mergeSort(a, mid+1, hi, compare, aux);
         jss.merge(a, aux, lo, mid, hi, compare);
     };
     
@@ -118,21 +118,21 @@ var jssort = jssort || {};
             aux[k] = a[k];
         }  
         
-        var i = lo, j = mid;
+        var i = lo, j = mid+1;
         for (var k = lo; k <= hi; ++k) {
-            if ( i >= mid) {
+            if ( i > mid) {
                 a[k] = aux[j++];
             }
-            if( j >= hi) {
+            else if( j > hi) {
                 a[k] = aux[i++];
             }
-            
-            if (jss.less(a[i], a[j], compare)) {
-               a[k] = a[i++]; 
+            else if (jss.less(aux[i], aux[j], compare)) {
+                a[k] = aux[i++]; 
             } else {
-                a[k] = a[j++];
+                a[k] = aux[j++];
             }
         }
+        
     };
     
     jss.quickSort = function (a, lo, hi, compare) {

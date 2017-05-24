@@ -16,8 +16,8 @@ In terms of supported algorithms for sorting:
 * Insertion Sort
 * Merge Sort
 * Quick Sort
-* 3-Ways Quick Sort
-* Heap Sort
+* 3-Ways Quick Sort (WIP)
+* Heap Sort (WIP)
 * Shell Sort
 
 # Install
@@ -37,6 +37,7 @@ jss.insertionSort(a);
 jss.selectionSort(a);
 jss.shellSort(a);
 jss.mergeSort(a);
+jss.quickSort(a);
 ```
 
 Additionally user can specify the range in "a" to do the sorting as well as customized comparer:
