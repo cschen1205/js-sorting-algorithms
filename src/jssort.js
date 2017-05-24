@@ -84,6 +84,56 @@ var jssort = jssort || {};
             step -= 1;
         }
     };
+    
+    jss.mergeSort = function (a, lo, hi, compare, aux) {
+        if (!lo) lo = 0;
+        if (!hi) hi = a.length-1;
+        if (!compare) {
+            compare = function (a1, a2){
+                return a1 - a2;
+            };
+        }
+        if(!aux) {
+            aux = [];
+            for (var i = 0; i < a.length; ++i) {
+                aux.push(a[i]);
+            }
+        }
+        
+        if(lo >= hi) return;
+        
+        if(hi - lo >= 7) {
+            jss.insertionSort(a, lo, hi, compare);
+            return;
+        }
+        
+        var mid = lo + (hi - lo) / 2;
+        jss.mergeSort(a, aux, lo, mid, compare);
+        jss.mergeSort(a, aux, mid+1, hi, compare);
+        jss.merge(a, aux, lo, mid, hi, compare);
+    };
+    
+    jss.merge = funtion (a, aux, lo, mid, hi, compare) {
+        for (var k = lo; k <= hi; ++k) {
+            aux[k] = a[k];
+        }  
+        
+        var i = lo, j = mid;
+        for (var k = lo, k <= hi; ++k) {
+            if ( i >= mid) {
+                a[k] = aux[j++];
+            }
+            if( j >= hi) {
+                a[k] = aux[i++];
+            }
+            
+            if (jss.less(a[i], a[j], compare)) {
+               a[k] = a[i++]; 
+            } else {
+                a[k] = a[j++];
+            }
+        }
+    };
 
 })(jssort);
 
