@@ -30,6 +30,25 @@ npm install js-sorting-algorithms
 
 # Usage
 
+To sort an array "a" using any of the sorting algorithms:
+
+```javascript
+jss.insertionSort(a);
+jss.selectionSort(a);
+jss.shellSort(a);
+```
+
+Additionally user can specify the range in "a" to do the sorting as well as customized comparer:
+
+```javascript
+var comparer = function(a1, a2){
+    return a1 - a2;
+};
+
+jss.insertionSort(a, lo, hi, comparer);
+```
+
+
 Sample code is available at [playground](https://runkit.com/cschen1205/js-sorting-algorithms-playground)
 
 ### Using with nodejs
