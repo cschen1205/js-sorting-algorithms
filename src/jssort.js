@@ -73,7 +73,7 @@ var jssort = jssort || {};
         var step = h;
         while (step >= 1) {
             for (var i = lo + step; i <= hi; i++){
-                for(var j = i; j >= lo; j -= step) {
+                for(var j = i; j >= lo + step; j -= step) {
                     if(jss.less(a[j], a[j-step], compare)){
                         jss.exchange(a, j, j-step);
                     } else {
