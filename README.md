@@ -36,6 +36,7 @@ To sort an array "a" using any of the sorting algorithms:
 jss.insertionSort(a);
 jss.selectionSort(a);
 jss.shellSort(a);
+jss.mergeSort(a);
 ```
 
 Additionally user can specify the range in "a" to do the sorting as well as customized comparer:

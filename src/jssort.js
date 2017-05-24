@@ -113,13 +113,13 @@ var jssort = jssort || {};
         jss.merge(a, aux, lo, mid, hi, compare);
     };
     
-    jss.merge = funtion (a, aux, lo, mid, hi, compare) {
+    jss.merge = function (a, aux, lo, mid, hi, compare) {
         for (var k = lo; k <= hi; ++k) {
             aux[k] = a[k];
         }  
         
         var i = lo, j = mid;
-        for (var k = lo, k <= hi; ++k) {
+        for (var k = lo; k <= hi; ++k) {
             if ( i >= mid) {
                 a[k] = aux[j++];
             }
