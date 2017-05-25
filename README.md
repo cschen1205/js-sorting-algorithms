@@ -38,6 +38,8 @@ jss.selectionSort(a);
 jss.shellSort(a);
 jss.mergeSort(a);
 jss.quickSort(a);
+jss.threeWaysQuickSort(a);
+jss.heapSort(a);
 ```
 
 Additionally user can specify the range in "a" to do the sorting as well as customized comparer:
