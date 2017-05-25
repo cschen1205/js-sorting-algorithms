@@ -227,25 +227,28 @@ var jssort = jssort || {};
         
         var N = a.length;
         var N2 = Math.floor(N / 2);
-        for (var k = N2; k <= 1; --k){
-            jss.sink(a, k, N);
+        for (var k = N2; k >= 1; --k){
+            jss.sink(a, k, N, compare);
         }
         
         while (N > 1) {
+            
             jss.exchange(a, jss.heapIndex(1), jss.heapIndex(N));
             N--;
-            jss.sink(a, 1, N);
+            jss.sink(a, 1, N, compare);
+            
         }
     };
     
-    jss.sink = function(a, k, N) {
+    jss.sink = function(a, k, N, compare) {
         while (k * 2 <= N) {
             var child =  k * 2;
-            if(child < N && jss.less(a[jss.heapIndex(child), jss.heapIndex(child+1)])) {
+            if(child < N && jss.less(a[jss.heapIndex(child)], a[jss.heapIndex(child+1)], compare)) {
                 child++;
             }
-            if(jss.less(a[jss.heapIndex(k)], a[jss.heapIndex(child)])) {
+            if(jss.less(a[jss.heapIndex(k)], a[jss.heapIndex(child)], compare)) {
                 jss.exchange(a, jss.heapIndex(k), jss.heapIndex(child));
+                k = child;
             } else {
                 break;
             }
