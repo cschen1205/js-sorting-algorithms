@@ -17,7 +17,7 @@ In terms of supported algorithms for sorting:
 * Merge Sort
 * Quick Sort
 * 3-Ways Quick Sort
-* Heap Sort (WIP)
+* Heap Sort
 * Shell Sort
 
 # Install
