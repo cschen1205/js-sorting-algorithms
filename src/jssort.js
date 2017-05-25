@@ -183,6 +183,40 @@ var jssort = jssort || {};
         jss.exchange(a, lo, j);
         return j;
     };
+    
+    jss.threeWaysQuickSort = function (a, lo, hi, compare) {
+        if (!lo) lo = 0;
+        if (!hi) hi = a.length-1;
+        if (!compare) {
+            compare = function (a1, a2){
+                return a1 - a2;
+            };
+        }
+        
+        if (lo >= hi) {
+            return;
+        }
+        
+        if (hi - lo <= 7) {
+            jss.insertionSort(a, lo, hi, compare);
+            return;
+        }
+        
+        var i = lo, lt = lo, gt = hi;
+        var v = a[lo];
+        while (i < gt) {
+            if (jss.less(a[i], v, compare)) {
+                jss.exchange(a, i++, lt++);
+            } else if(jss.less(v, a[i], compare)) {
+                jss.exchange(a, i, gt--);
+            } else {
+                i++;
+            }
+        }
+        
+        jss.threeWaysQuickSort(a, lo, lt-1, compare);
+        jss.threeWaysQuickSort(a, gt+1, hi, compare);
+    };
 
 })(jssort);
 
