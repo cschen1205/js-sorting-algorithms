@@ -217,7 +217,44 @@ var jssort = jssort || {};
         jss.threeWaysQuickSort(a, lo, lt-1, compare);
         jss.threeWaysQuickSort(a, gt+1, hi, compare);
     };
+    
+    jss.heapSort = function(a, compare) {
+        if (!compare) {
+            compare = function (a1, a2){
+                return a1 - a2;
+            };
+        }
+        
+        var N = a.length;
+        var N2 = Math.floor(N / 2);
+        for (var k = N2; k <= 1; --k){
+            jss.sink(a, k, N);
+        }
+        
+        while (N > 1) {
+            jss.exchange(a, jss.heapIndex(1), jss.heapIndex(N));
+            N--;
+            jss.sink(a, 1, N);
+        }
+    };
+    
+    jss.sink = function(a, k, N) {
+        while (k * 2 <= N) {
+            var child =  k * 2;
+            if(child < N && jss.less(a[jss.heapIndex(child), jss.heapIndex(child+1)])) {
+                child++;
+            }
+            if(jss.less(a[jss.heapIndex(k)], a[jss.heapIndex(child)])) {
+                jss.exchange(a, jss.heapIndex(k), jss.heapIndex(child));
+            } else {
+                break;
+            }
+        }  
+    };
 
+    jss.heapIndex = function(i) {
+        return i - 1;
+    };
 })(jssort);
 
 if(module) {
