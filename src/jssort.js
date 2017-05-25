@@ -204,7 +204,7 @@ var jssort = jssort || {};
         
         var i = lo, lt = lo, gt = hi;
         var v = a[lo];
-        while (i < gt) {
+        while (i <= gt) {
             if (jss.less(a[i], v, compare)) {
                 jss.exchange(a, i++, lt++);
             } else if(jss.less(v, a[i], compare)) {

@@ -16,7 +16,7 @@ In terms of supported algorithms for sorting:
 * Insertion Sort
 * Merge Sort
 * Quick Sort
-* 3-Ways Quick Sort (WIP)
+* 3-Ways Quick Sort
 * Heap Sort (WIP)
 * Shell Sort
 
