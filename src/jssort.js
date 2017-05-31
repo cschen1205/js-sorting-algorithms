@@ -260,6 +260,7 @@ var jssort = jssort || {};
     };
 })(jssort);
 
+var module = module || {};
 if(module) {
 	module.exports = jssort;
 }

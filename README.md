@@ -1,4 +1,4 @@
-# js-sort
+# js-sorting-algorithms
 Package provides the javascript implementation of sorting algorithms for array
 
 [![Build Status](https://travis-ci.org/cschen1205/js-sorting-algorithms.svg?branch=master)](https://travis-ci.org/cschen1205/js-sorting-algorithms) [![Coverage Status](https://coveralls.io/repos/github/cschen1205/js-sorting-algorithms/badge.svg?branch=master)](https://coveralls.io/github/cschen1205/js-sorting-algorithms?branch=master) 
@@ -58,7 +58,7 @@ Sample code is available at [playground](https://runkit.com/cschen1205/js-sortin
 ### Using with nodejs
 
 ```javascript
-jssort = require('js-sort');
+jssort = require('js-sorting-algorithms');
 
 //====================Simple====================//
 
